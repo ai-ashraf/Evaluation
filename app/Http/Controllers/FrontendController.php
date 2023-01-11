@@ -18,25 +18,25 @@ class FrontendController extends Controller
     if (request()->has('productfilter')) {
 
     if ($request->productfilter == 1) {
-        $products = Product::orderBy('category_id', 'DESC');
+        $products = Product::orderBy('subcategory_id', 'DESC')->get();
         return view('welcome', compact('products','categories','subcategories'));
     }
 
     if ($request->productfilter == 2) {
         
-        $products = Product::orderBy('subcategory_id', 'DESC');
+        $products = Product::orderBy('subcategory_id', 'DESC')->get();
         return view('welcome', compact('products','categories','subcategories'));
     }
 
     if ($request->productfilter == 3) {
         
-        $products = Product::orderBy('price', 'asc');
+        $products = Product::orderBy('price', 'asc')->get();
         return view('welcome', compact('products','categories','subcategories'));
     }
 
     if ($request->productfilter == 4) {
         
-        $products = Product::orderBy('price', 'DESC');
+        $products = Product::orderBy('price', 'DESC')->get();
         return view('welcome', compact('products','categories','subcategories'));
     }
 
